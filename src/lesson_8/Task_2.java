@@ -6,28 +6,35 @@ public class Task_2 {
 
     public static void main(String[] args) {
 
-        System.out.println("-- Program for adding --");
+        System.out.println("-- Parity check program --");
         Scanner scanner = new Scanner(System.in);
-        result(scanner);
+        result(testInput(scanner));
     }
 
-    static void result (Scanner scanner){
-        int a = 0;
+    static int testInput (Scanner scanner){
+        boolean a = true;
         int number=0;
-
         System.out.println("Enter number");
-        while (a<2){
+
+        while (a){
             if (scanner.hasNextInt()){
-               number += scanner.nextInt();
-                a++;
+                a = false;
+               number = scanner.nextInt();
             }else {
                 System.out.println("Please, enter an integer number");
-                scanner.nextLine();
+                scanner.next();
             }
 
         }
-        System.out.println("Result is " + number);
+        return  number;
     }
 
+    static void result (int number){
+        if (number % 2 == 0){
+            System.out.println("Your`s number is even");
+        }else {
+            System.out.println("Your`s number is odd");
+        }
 
+    }
 }
